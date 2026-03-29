@@ -169,11 +169,11 @@ Esta seção detalha a aplicação das técnicas de teste black-box para modelar
 - Prioridade: Crítica  
 - Resultado Esperado: Rejeitar ou sanitizar
 
-# 5.2. Técnica: Tabela de Decisão
+### 5.2. Técnica: Tabela de Decisão
 
 ---
 
-#### 5.2.1 Funcionalidade: Validação Server-Side (Título, Descrição, Comentários)
+### 5.2.1 Funcionalidade: Validação Server-Side (Título, Descrição, Comentários)
 
 **Regra:** Os dados só são aceitos se todos os campos forem válidos.
 
@@ -243,7 +243,7 @@ Esta seção detalha a aplicação das técnicas de teste black-box para modelar
 
 ---
 
-## 5.2.3. Funcionalidade: Responsividade (Desktop/Mobile)
+### 5.2.3. Funcionalidade: Responsividade (Desktop/Mobile)
 
 **Regra:** O sistema deve funcionar corretamente em diferentes dispositivos.
 
@@ -273,7 +273,7 @@ Esta seção detalha a aplicação das técnicas de teste black-box para modelar
 
 ---
 
-# 5.2.4. Funcionalidade: Segurança – XSS em Comentários
+### 5.2.4. Funcionalidade: Segurança – XSS em Comentários
 
 **Regra:** Scripts maliciosos devem ser bloqueados ou sanitizados.
 
