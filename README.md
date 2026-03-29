@@ -15,6 +15,8 @@ Este documento detalha o planejamento estratégico das atividades de teste para 
 
 ## 2. Escopo dos Testes
 
+### As seguintes funcionalidades serão o foco das atividades de teste nesta fase do projeto:
+
 ### ✅ 2.1. Em Escopo
 * **Gestão de Usuários:** Cadastro (validações de e-mail/senha), Autenticação (Login/Logout) e Edição de perfil.
 * **Gestão de Vídeos:** Upload (formato, tempo, tamanho), Playlists e Visualização responsiva.
@@ -29,11 +31,13 @@ Este documento detalha o planejamento estratégico das atividades de teste para 
 ---
 
 ## 3. Estratégia de Testes
-Baseada no conceito de **Shift Left Testing**, antecipando testes desde o início do ciclo de vida.
+A Estratégia de Testes pensada para esse programa é fundamentada no "Shift Left Testing" que antecipa as atividades de testes logo no início do projeto. Dessa forma há um maior controle de tempo e custo, facilitando a correção de erros precocemente. A pirãmide de testes foi fundamentada da seguinte forma:
 
-1.  **Testes Unitários:** Validação de métodos e funções (ex: moderação de idade, tipos de arquivo).
-2.  **Testes de Integração:** Comunicação entre a aplicação, banco de dados (MariaDB/PHP) e sistemas de arquivos.
-3.  **Testes Black-Box (E2E):** Simulação do usuário final usando Particionamento de Equivalência e Tabelas de Decisão.
+1.  **Testes Unitários:** Por meio desse teste são feitas validações dos métodos e funções do projeto (menor parte do projeto), como: moderação de idade, tamanho e formato de arquivos, informações de login. Dessa forma o sistema consegue fazer a correta manipulação de dados.
+2.  **Testes de Integração:** Localizados no meio da pirâmide, esses testes verificam a interação entre diferentes módulos ou serviços. Na plataforma de compartilhamento de vídeos curtos, ShortzApp, serão aplicados para garantir a comunicação eficaz entre a camada de aplicação e o banco de dados (persistência de vídeos, perfis, comentários, curtidas e visualizações), bem como a integração com o sistema de armazenamento de arquivos de vídeo.
+3.  **Testes Black-Box (E2E):** No topo da pirâmide, estes testes simulam o comportamento do usuário final, validando fluxos completos da aplicação. Serão executados utilizando as técnicas de Particionamento de Equivalência, Análise de Valores-Limite e Tabelas de Decisão para garantir que o sistema atenda aos requisitos funcionais e de usabilidade, sem a necessidade de conhecimento interno do código.
+
+Além disso, consideraremos a realização de Testes de Desempenho em uma fase posterior para avaliar a capacidade do sistema de lidar com múltiplos uploads e visualizações simultâneas de vídeos, e Testes de Segurança para identificar vulnerabilidades comuns (ex: injeção de SQL, XSS) nas funcionalidades de autenticação, upload de vídeos e manipulação de comentários.
 
 ---
 
