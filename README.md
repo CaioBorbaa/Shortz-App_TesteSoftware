@@ -169,16 +169,137 @@ Esta seção detalha a aplicação das técnicas de teste black-box para modelar
 - Prioridade: Crítica  
 - Resultado Esperado: Rejeitar ou sanitizar
 
-### 5.2. Tabela de Decisão
-**Funcionalidade:** Criação de Álbum/Playlist
+# 5.2. Técnica: Tabela de Decisão
 
-| Condições | R1 | R2 | R3 | R4 |
-| :--- | :---: | :---: | :---: | :---: |
-| Usuário Logado? | S | S | S | N |
-| Nome do Álbum Único? | S | S | N | S |
-| Nº Fotos/Vídeos <= 50? | S | N | S | S |
-| **Ação: Criar Álbum** | **SIM** | NÃO | NÃO | NÃO |
+---
 
+## 1. Funcionalidade: Validação Server-Side (Título, Descrição, Comentários)
+
+**Regra:** Os dados só são aceitos se todos os campos forem válidos.
+
+### Tabela de Decisão
+
+| Condições/Ações        | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 |
+|-----------------------|----|----|----|----|----|----|----|----|
+| Título válido?        | S  | S  | S  | S  | N  | N  | N  | N  |
+| Descrição válida?     | S  | S  | N  | N  | S  | S  | N  | N  |
+| Comentário válido?    | S  | N  | S  | N  | S  | N  | S  | N  |
+| **Ação: Aceitar**     | S  | N  | N  | N  | N  | N  | N  | N  |
+| **Ação: Exibir Erro** | N  | S  | S  | S  | S  | S  | S  | S  |
+
+---
+
+### Casos de Teste Resultantes
+
+#### CT-SV-001 (R1): Dados válidos
+- **Prioridade:** Alta  
+- **Pré-condições:** Sistema disponível  
+- **Passos:** Inserir título, descrição e comentário válidos  
+- **Resultado Esperado:** Dados aceitos  
+
+---
+
+#### CT-SV-002 (R2): Comentário inválido
+- **Prioridade:** Alta  
+- **Passos:** Inserir comentário inválido  
+- **Resultado Esperado:** Exibir erro  
+
+---
+
+#### CT-SV-003 (R5): Título inválido
+- **Prioridade:** Alta  
+- **Passos:** Inserir título inválido  
+- **Resultado Esperado:** Exibir erro  
+
+---
+
+## 2. Funcionalidade: Controle de Acesso por Idade (+18)
+
+**Regra:** Apenas usuários com 18 anos ou mais podem acessar conteúdo +18.
+
+### Tabela de Decisão
+
+| Condições/Ações            | R1 | R2 |
+|---------------------------|----|----|
+| Usuário ≥ 18?             | S  | N  |
+| **Ação: Permitir Acesso** | S  | N  |
+| **Ação: Bloquear Acesso** | N  | S  |
+
+---
+
+### Casos de Teste Resultantes
+
+#### CT-ID-001 (R1): Usuário maior de idade
+- **Prioridade:** Crítica  
+- **Passos:** Acessar conteúdo +18  
+- **Resultado Esperado:** Acesso permitido  
+
+---
+
+#### CT-ID-002 (R2): Usuário menor de idade
+- **Prioridade:** Crítica  
+- **Passos:** Tentar acessar conteúdo +18  
+- **Resultado Esperado:** Acesso bloqueado  
+
+---
+
+## 3. Funcionalidade: Responsividade (Desktop/Mobile)
+
+**Regra:** O sistema deve funcionar corretamente em diferentes dispositivos.
+
+### Tabela de Decisão
+
+| Condições/Ações             | R1 | R2 | R3 | R4 |
+|------------------------------|----|----|----|----|
+| Layout responsivo?           | S  | S  | N  | N  |
+| Funciona no dispositivo?     | S  | N  | S  | N  |
+| **Ação: Interface Correta**  | S  | N  | N  | N  |
+| **Ação: Exibir Erro**        | N  | S  | S  | S  |
+
+---
+
+### Casos de Teste Resultantes
+
+#### CT-RS-001 (R1): Layout correto
+- **Prioridade:** Alta  
+- **Passos:** Acessar sistema em desktop/mobile  
+- **Resultado Esperado:** Interface correta  
+
+---
+
+#### CT-RS-002 (R4): Layout quebrado
+- **Prioridade:** Crítica  
+- **Resultado Esperado:** Identificar erro de responsividade  
+
+---
+
+## 4. Funcionalidade: Segurança – XSS em Comentários
+
+**Regra:** Scripts maliciosos devem ser bloqueados ou sanitizados.
+
+### Tabela de Decisão
+
+| Condições/Ações              | R1 | R2 |
+|-------------------------------|----|----|
+| Entrada contém script?        | N  | S  |
+| **Ação: Aceitar Comentário**  | S  | N  |
+| **Ação: Rejeitar/Sanitizar**  | N  | S  |
+
+---
+
+### Casos de Teste Resultantes
+
+#### CT-XSS-001 (R1): Comentário válido
+- **Prioridade:** Alta  
+- **Resultado Esperado:** Aceitar  
+
+---
+
+#### CT-XSS-002 (R2): Script malicioso
+- **Prioridade:** Crítica  
+- **Resultado Esperado:** Rejeitar ou sanitizar  
+
+---
 ---
 
 ## 6. Critérios de Aceitação
