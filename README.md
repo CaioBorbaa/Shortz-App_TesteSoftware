@@ -302,19 +302,56 @@ Esta seção detalha a aplicação das técnicas de teste black-box para modelar
 ---
 ---
 
-## 6. Critérios de Aceitação
+# 6. Critérios de Aceitação
 
-### 🚩 6.1. Critérios de Entrada
-* Requisitos aprovados pela equipe de produto.
-* Ambiente de teste (PHP/MariaDB) configurado e estável.
-* Builds implantadas com sucesso no ambiente de QA.
+## 6.1. Critérios de Entrada
 
-### 🏁 6.2. Critérios de Saída
-* 100% dos testes de prioridade **Crítica/Alta** aprovados.
-* Cobertura de requisitos mínima de **90%**.
-* Sem bugs impeditivos na experiência do usuário.
+As atividades de teste das funcionalidades do **ShortzApp** somente serão iniciadas quando todas as seguintes condições forem atendidas:
 
-### ⚠️ 6.3. Critérios de Suspensão
-* Falha em mais de 20% dos casos de teste de prioridade Alta.
-* Instabilidade no ambiente por mais de 4 horas.
-* Defeito bloqueador em funcionalidade central (ex: Login).
+- Todos os requisitos funcionais e não funcionais relacionados às funcionalidades de **Gestão de Usuários**, **Gestão de Vídeos** e **Interação Social** estiverem finalizados, documentados e aprovados pela equipe de produto.
+
+- O ambiente de testes (servidor de aplicação, banco de dados e armazenamento de arquivos de vídeo) estiver devidamente configurado, estável e acessível, garantindo compatibilidade com o ambiente de produção.
+
+- As builds do **ShortzApp** contendo as funcionalidades a serem testadas estiverem disponíveis e corretamente implantadas no ambiente de testes.
+
+- A equipe de testes possuir acesso às ferramentas necessárias para execução e acompanhamento dos testes, tais como:
+  - Gerenciador de casos de teste  
+  - Ferramentas de monitoramento de logs  
+  - Sistema de registro de defeitos  
+
+---
+
+## 6.2. Critérios de Saída
+
+O ciclo de testes será considerado concluído, e as funcionalidades estarão aptas para implantação em produção, quando todos os critérios abaixo forem atendidos:
+
+- 100% dos casos de teste classificados com prioridade **Crítica** e **Alta** forem executados com sucesso.
+
+- Todos os defeitos classificados com severidade **Crítica** e **Alta** forem corrigidos, re-testados, validados e encerrados.
+
+- A cobertura de requisitos das funcionalidades em escopo atingir no mínimo **90%**.
+
+- Não existirem defeitos de severidade **Média** ou **Baixa** que comprometam:
+  - A experiência do usuário (ex: falhas no feed, responsividade ou interação)
+  - A integridade dos dados (ex: inconsistência em curtidas, comentários ou usuários)
+
+- Os resultados dos testes de desempenho indicarem que o sistema suporta adequadamente a carga esperada, especialmente nas funcionalidades de:
+  - Upload de vídeos  
+  - Reprodução de vídeos  
+  - Carregamento do feed  
+
+---
+
+## 6.3. Critérios de Suspensão
+
+As atividades de teste poderão ser temporariamente suspensas caso ocorra qualquer uma das seguintes situações:
+
+- Mais de **20% dos casos de teste de prioridade Alta** apresentarem falha na primeira execução, indicando instabilidade significativa da build.
+
+- O ambiente de testes se tornar indisponível ou instável por um período superior a **4 horas consecutivas**, impossibilitando a continuidade dos testes.
+
+- Uma funcionalidade crítica do sistema (como login, upload de vídeos ou reprodução de vídeos) apresentar um **defeito bloqueador**, impedindo o progresso dos testes em funcionalidades dependentes.
+
+- Ocorrerem mudanças significativas nos requisitos das funcionalidades em teste sem aviso prévio, tornando os casos de teste atuais inválidos.
+
+---
