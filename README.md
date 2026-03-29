@@ -52,6 +52,12 @@ Além disso, consideraremos a realização de Testes de Desempenho em uma fase p
 | Upload de vídeos > 1 minuto | Média | Baixo | Baixa | Análise de Valor Limite na duração do vídeo. |
 | Múltiplos usuários com o mesmo nome. | Baixa | Crítico | Alta | Aplicar Análise de Valores-Limite e Particionamento de Equivalência no tamanho e formato do arquivo. Testes unitários para validação de MIME-type e extensão. |
 | Formato dos campos não validados no Server-Side | Baixo | Alto | Alta | Testes de integração e black-box com validações server-side para todos os campos de entrada (título, descrição, comentários). |
+| Falha na exibição de vídeos curtos | Alta | Médio | Média | Testes de integração com o player de vídeo e testes E2E de visualização em diferentes dispositivos e redes. |
+| Falha na conexão com o Banco de Dados para a busca por usuário ou título | Baixa | Alto | Alta | Testes de integração entre camada de aplicação e banco de dados para queries de busca (título e usuário). |
+| Bugs na responsividade no Desktop ou Mobile | Média | Crítico | Crítica | Testes de usabilidade black-box e testes de responsividade em múltiplos navegadores e dispositivos (Desktop/Mobile). |
+| Falha na contagem de visualização do vídeo ao ser acessado | Baixa | Crítico | Crítica | Testes de integração para atualização automática do contador de visualizações no  |
+| Mais de um usuário autenticado no sistema com o mesmo e-mail | Baixa | Crítico | Crítica | Testes unitários e de integração na validação de e-mail único durante cadastro e login. |
+| Lentidão no feed/carregamento | Alta | Alto | Alta | Testes de desempenho (carga e estresse) simulando múltiplos usuários acessando o feed e visualizando vídeos simultaneamente. |
 
 ---
 
