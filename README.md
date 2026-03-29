@@ -4,7 +4,7 @@
 | :--- | :--- | :--- |
 | **1.1** | 27 de março de 2026 | Caio Borba, Eduardo Duarte, Julio Cesar Maçaneiro, Matheus Janing, Thiago Canal |
 
-**Projeto:** ShortzApp – cópia descarada do tiktok. b
+**Projeto:** ShortzApp – cópia descarada do tiktok.
 
 ---
 
