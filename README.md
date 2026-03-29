@@ -50,6 +50,7 @@ Além disso, consideraremos a realização de Testes de Desempenho em uma fase p
 | Injeção XSS em comentários | Média | Crítico | **Crítica** | Testes de segurança e sanitização de inputs. |
 | Usuário menor de idade em vídeo +18 | Média | Crítico | **Crítica** | Teste E2E de controle de acesso por perfil. |
 | Upload de vídeos > 1 minuto | Média | Baixo | Baixa | Análise de Valor Limite na duração do vídeo. |
+| Múltiplos usuários com o mesmo nome. | Baixa | Crítico | Alta | Aplicar Análise de Valores-Limite e Particionamento de Equivalência no tamanho e formato do arquivo. Testes unitários para validação de MIME-type e extensão. |
 
 ---
 
