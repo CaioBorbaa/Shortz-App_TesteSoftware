@@ -63,6 +63,8 @@ Além disso, consideraremos a realização de Testes de Desempenho em uma fase p
 
 ## 5. Casos de Teste Planejados (Black-Box)
 
+Esta seção detalha a aplicação das técnicas de teste black-box para modelar casos de teste manuais para funcionalidades críticas do ShortzApp. Serão apresentados exemplos de Particionamento de Equivalência, Análise de Valores-Limite e Tabelas de Decisão.
+
 # 5.1 Funcionalidade: Validação Server-Side (Título, Descrição, Comentários)
 
 ## Particionamento de Equivalência
