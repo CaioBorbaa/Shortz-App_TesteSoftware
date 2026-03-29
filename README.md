@@ -173,7 +173,7 @@ Esta seção detalha a aplicação das técnicas de teste black-box para modelar
 
 ---
 
-## 1. Funcionalidade: Validação Server-Side (Título, Descrição, Comentários)
+#### 5.2.1 Funcionalidade: Validação Server-Side (Título, Descrição, Comentários)
 
 **Regra:** Os dados só são aceitos se todos os campos forem válidos.
 
@@ -213,7 +213,7 @@ Esta seção detalha a aplicação das técnicas de teste black-box para modelar
 
 ---
 
-## 2. Funcionalidade: Controle de Acesso por Idade (+18)
+### 5.2.2. Funcionalidade: Controle de Acesso por Idade (+18)
 
 **Regra:** Apenas usuários com 18 anos ou mais podem acessar conteúdo +18.
 
@@ -243,7 +243,7 @@ Esta seção detalha a aplicação das técnicas de teste black-box para modelar
 
 ---
 
-## 3. Funcionalidade: Responsividade (Desktop/Mobile)
+## 5.2.3. Funcionalidade: Responsividade (Desktop/Mobile)
 
 **Regra:** O sistema deve funcionar corretamente em diferentes dispositivos.
 
@@ -273,7 +273,7 @@ Esta seção detalha a aplicação das técnicas de teste black-box para modelar
 
 ---
 
-## 4. Funcionalidade: Segurança – XSS em Comentários
+# 5.2.4. Funcionalidade: Segurança – XSS em Comentários
 
 **Regra:** Scripts maliciosos devem ser bloqueados ou sanitizados.
 
