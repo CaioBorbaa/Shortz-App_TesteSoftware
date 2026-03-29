@@ -57,17 +57,109 @@ Além disso, consideraremos a realização de Testes de Desempenho em uma fase p
 
 ## 5. Casos de Teste Planejados (Black-Box)
 
-### 5.1. Particionamento de Equivalência e Valor Limite
-**Funcionalidade:** Cadastro de Usuário - Campo Senha (8 a 20 caracteres)
+# 5.1 Funcionalidade: Validação Server-Side (Título, Descrição, Comentários)
 
-| Limite | Valor de Teste | Resultado Esperado |
-| :--- | :--- | :--- |
-| Valor Abaixo (7) | `Abc@123` | Erro: Mínimo 8 caracteres |
-| Valor Mínimo (8) | `Abc@1234` | Sucesso |
-| Valor Máximo (20) | `SenhaForte@2026_Teste` | Sucesso |
-| Acima do Máximo (21)| `SenhaMuitoLongaExcede21` | Erro: Máximo 20 caracteres |
+## Particionamento de Equivalência
 
----
+| Campo       | Classe Válida        | Classes Inválidas              |
+|------------|---------------------|--------------------------------|
+| Título     | 1 a 100 caracteres  | vazio; > 100                  |
+| Descrição  | 1 a 1000 caracteres | vazio; > 1000                 |
+| Comentário | 1 a 500 caracteres  | vazio; > 500; código malicioso |
+
+## Análise de Valores-Limite
+
+| Limite                    | Valor Mínimo | Valor Abaixo | Valor Máximo     | Valor Acima     |
+|--------------------------|--------------|--------------|------------------|------------------|
+| Valores de Teste (Título) | A            | vazio        | 100 caracteres   | 101 caracteres   |
+
+## Casos de Teste Resultantes
+
+### CT-SV-001: Entrada válida no título
+- Prioridade: Alta  
+- Passos: Inserir título com 50 caracteres  
+- Resultado Esperado: Aceitar  
+
+### CT-SV-002: Campo vazio
+- Prioridade: Alta  
+- Passos: Deixar título vazio  
+- Resultado Esperado: Exibir erro  
+
+
+ Funcionalidade: Controle de Acesso por Idade (+18)
+
+## Particionamento de Equivalência
+
+| Campo              | Classe Válida | Classes Inválidas |
+|-------------------|--------------|------------------|
+| Idade do Usuário  | ≥ 18 anos    | < 18 anos        |
+
+## Análise de Valores-Limite
+
+| Limite           | Valor Mínimo (18) | Abaixo | Valor Válido | Acima |
+|------------------|-------------------|--------|--------------|--------|
+| Valores de Teste | 18                | 17     | 25           | 60     |
+
+## Casos de Teste Resultantes
+
+### CT-ID-001: Usuário maior de idade acessa vídeo +18
+- Prioridade: Crítica  
+- Resultado Esperado: Acesso permitido  
+
+### CT-ID-002: Usuário menor de idade tenta acessar
+- Prioridade: Crítica  
+- Resultado Esperado: Acesso bloqueado  
+
+
+ Funcionalidade: Responsividade (Desktop/Mobile)
+
+## Particionamento de Equivalência
+
+| Campo       | Classe Válida                | Classes Inválidas        |
+|------------|-----------------------------|--------------------------|
+| Layout     | Adaptável (responsivo)      | Quebra de layout         |
+| Dispositivo| Desktop e Mobile funcionais | Interface com erro       |
+
+## Análise de Valores-Limite
+
+| Limite           | Valor Ideal     | Abaixo          | Máximo                        | Acima            |
+|------------------|-----------------|------------------|-------------------------------|------------------|
+| Valores de Teste | Layout correto  | Pequenos erros   | Funciona em resoluções padrão | Layout quebrado  |
+
+## Casos de Teste Resultantes
+
+### CT-RS-001: Acesso via desktop
+- Prioridade: Alta  
+- Resultado Esperado: Interface correta  
+
+### CT-RS-002: Acesso via mobile com erro de layout
+- Prioridade: Crítica  
+- Resultado Esperado: Detectar falha  
+
+
+ Funcionalidade: Segurança – XSS em Comentários
+
+## Particionamento de Equivalência
+
+| Campo       | Classe Válida  | Classes Inválidas             |
+|------------|---------------|-------------------------------|
+| Comentário | Texto simples | Scripts e códigos maliciosos  |
+
+## Análise de Valores-Limite
+
+| Limite           | Entrada Válida     | Entrada Maliciosa              | Limite Aceitável      | Acima            |
+|------------------|--------------------|-------------------------------|-----------------------|------------------|
+| Valores de Teste | Comentário normal  | <script>alert(1)</script>     | Texto com símbolos    | Script completo  |
+
+## Casos de Teste Resultantes
+
+### CT-XSS-001: Comentário válido
+- Prioridade: Alta  
+- Resultado Esperado: Aceitar  
+
+### CT-XSS-002: Inserção de script
+- Prioridade: Crítica  
+- Resultado Esperado: Rejeitar ou sanitizar
 
 ### 5.2. Tabela de Decisão
 **Funcionalidade:** Criação de Álbum/Playlist
