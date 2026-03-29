@@ -4,12 +4,12 @@
 | :--- | :--- | :--- |
 | **1.1** | 27 de março de 2026 | Caio Borba, Eduardo Duarte, Julio Cesar Maçaneiro, Matheus Janing, Thiago Canal |
 
-**Projeto:** ShortzApp – Plataforma de vídeos curtos.
+**Projeto:** ShortzApp – cópia descarada do tiktok.
 
 ---
 
 ## 1. Introdução
-Este documento detalha o planejamento estratégico das atividades de teste para a plataforma **ShortzApp**, um aplicativo web para o compartilhamento de vídeos curtos. O objetivo é garantir que as funcionalidades críticas cumpram os requisitos estabelecidos de forma robusta e segura.
+Este documento detalha o planejamento estratégico das atividades de teste para a plataforma Shortz App, um aplicativo web para o compartilhamento de vídeos curtos entre os usuários do app. A aplicação visa permitir aos usuários upload de vídeos, interação com eles através de curtidas, salvar vídeos. O objetivo deste plano de testes é garantir que funcionalidades críticas estejam cumprindo os requisitos estabelecidos de forma robusta e segura.
 
 ---
 
